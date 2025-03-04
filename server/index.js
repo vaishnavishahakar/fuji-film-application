@@ -7,7 +7,7 @@ dotenv.config();
 
 // Custom imports
 import { getHome, getHealth, getNotFound } from './controllers/other.js';
-import { getFilm, postFilm, getFilmById } from './controllers/film.js';
+import { getFilm, postFilm, getFilmById, deleteFilmById, updateFilmById, updateFilmRatingById } from './controllers/film.js';
 
 const app = express();
 app.use(express.json());
@@ -37,6 +37,9 @@ app.get("/health", getHealth);
 app.post("/films", postFilm);
 app.get("/films", getFilm);
 app.get("/films/:id", getFilmById);
+app.delete("/films/:id", deleteFilmById);
+app.put("/films/:id", updateFilmById);
+app.patch("/films/rating/:id", updateFilmRatingById);
 
 app.get("*", getNotFound);
 
