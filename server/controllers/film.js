@@ -1,40 +1,5 @@
-import Film from "../models/Film.js";
+import Film from "./../models/Film.js";
 
-// const postFilm = async(req, res) => {
-//     const {
-//         title,
-//         shortDescription,
-//         director,
-//         poster,
-//         releaseYear,
-//         category,
-//         language,
-//         rating,
-//         writer,
-//         review
-//     } = req.body;
-
-//     const newFilm = new Film({
-//         title,
-//         shortDescription,
-//         director,
-//         poster,
-//         releaseYear,
-//         category,
-//         language,
-//         rating,
-//         writer,
-//         review
-//     });
-
-//     const savedFilm = await newFilm.save();
-
-//         return res.status(201).json({
-//             success: true,
-//             message: "Film created",
-//             data: savedFilm,
-//         });
-//     };
 const postFilm = async (req, res) => {
   try {
     const {

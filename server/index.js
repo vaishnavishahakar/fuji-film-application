@@ -13,12 +13,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// const connectDB = async () => {
-//     const conn = await mongoose.connect(process.env.MONGO_URI);
-//     if(conn){
-//         console.log("Connected to MongoDB");
-//     }
-// };
 const connectDB = async () => {
     try {
         const conn = await mongoose.connect(process.env.MONGO_URI);
@@ -46,7 +40,6 @@ app.get("*", getNotFound);
 const PORT = process.env.PORT || 5000;
 
 connectDB().then(() => {
-    // const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}`);
     });
