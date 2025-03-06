@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./AddFilm.css";
 import Input from "../../components/Input/Input";
+import Button from "../../components/Button/Button";
+import axios from 'axios';
+import toast from "react-hot-toast";
 
 function AddFilm() {
   const [film, setFilm] = useState({
@@ -16,6 +19,36 @@ function AddFilm() {
     review: "",
   });
 
+  const addFilm = async() => {
+    const response = await axios.post(`${process.env.REACT_APP_API_URL}/films`, {
+        title: film.title,
+        shortDescription: film.shortDescription,
+        director: film.director,
+        poster: film.poster,
+        releaseYear: film.releaseYear,
+        category: film.category,
+        language: film.language,
+        writer: film.writer,
+        rating: film.rating,
+        review: film.review,
+    });
+
+    toast.success(response.data.message);
+
+    setFilm({
+        title: "",
+        shortDescription: "",
+        director: "",
+        poster: "",
+        releaseYear: "",
+        category: "",
+        language: "",
+        writer: "",
+        rating: "",
+        review: "",
+    })
+  }
+
   return (
     <div>
       <h1>Add Film</h1>
@@ -24,7 +57,7 @@ function AddFilm() {
         <Input
           label="Title"
           value={film.title}
-          onChange={(val) => {
+          setValue={(val) => {
             setFilm({ ...film, title: val });
           }}
           placeholder={"Enter the title of the film"}
@@ -33,7 +66,7 @@ function AddFilm() {
         <Input
           label="Short Description"
           value={film.shortDescription}
-          onChange={(val) => {
+          setValue={(val) => {
             setFilm({ ...film, shortDescription: val });
           }}
           placeholder={"Enter a short description of the film"}
@@ -42,7 +75,7 @@ function AddFilm() {
         <Input
           label="Director"
           value={film.director}
-          onChange={(val) => {
+          setValue={(val) => {
             setFilm({ ...film, director: val });
           }}
           placeholder={"Enter a director of the film"}
@@ -51,7 +84,7 @@ function AddFilm() {
         <Input
           label="Poster"
           value={film.poster}
-          onChange={(val) => {
+          setValue={(val) => {
             setFilm({ ...film, poster: val });
           }}
           placeholder={"Enter the URL of the poster"}
@@ -60,7 +93,7 @@ function AddFilm() {
         <Input
           label="Release Year"
           value={film.releaseYear}
-          onChange={(val) => {
+          setValue={(val) => {
             setFilm({ ...film, releaseYear: val });
           }}
           placeholder={"Enter the release year of the film"}
@@ -69,7 +102,7 @@ function AddFilm() {
         <Input
           label="Category"
           value={film.category}
-          onChange={(val) => {
+          setValue={(val) => {
             setFilm({ ...film, category: val });
           }}
           placeholder={"Enter the category of the film"}
@@ -78,7 +111,7 @@ function AddFilm() {
         <Input
           label="Language"
           value={film.language}
-          onChange={(val) => {
+          setValue={(val) => {
             setFilm({ ...film, language: val });
           }}
           placeholder={"Enter the language of the film"}
@@ -87,7 +120,7 @@ function AddFilm() {
         <Input
           label="Writer"
           value={film.writer}
-          onChange={(val) => {
+          setValue={(val) => {
             setFilm({ ...film, writer: val });
           }}
           placeholder={"Enter the writer of the film"}
@@ -96,7 +129,7 @@ function AddFilm() {
         <Input
           label="Rating"
           value={film.rating}
-          onChange={(val) => {
+          setValue={(val) => {
             setFilm({ ...film, rating: val });
           }}
           placeholder={"Enter the rating of the film"}
@@ -105,11 +138,16 @@ function AddFilm() {
         <Input
           label="Review"
           value={film.review}
-          onChange={(val) => {
+          setValue={(val) => {
             setFilm({ ...film, review: val });
           }}
           placeholder={"Enter the review of the film"}
         />
+
+        <Button title="Add Film" onClick={()=>{addFilm()}} variant="primary" />
+
+        <Button title="Cancel" onClick={()=>{}} variant="secondary" />
+      
       </div>
     </div>
   );
