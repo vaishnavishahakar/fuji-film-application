@@ -3,6 +3,8 @@ import './Home.css';
 import axios from 'axios';
 import toast, {Toaster} from "react-hot-toast";
 import FilmCard from '../../components/FilmCard/FilmCard';
+import imgAddFilm from '../../assets/add-film.png';
+import {Link} from "react-router-dom";
 
 function Home () {
     const [films, setFilms] = useState([]);
@@ -57,6 +59,10 @@ function Home () {
             );
         })}
         <Toaster/>
+
+        <Link to="/add-film">
+            <img src={imgAddFilm} className='img-add-film'/>
+        </Link>
     </div>
   );
 }
