@@ -72,8 +72,8 @@ useEffect(() => {
 
   return (
     <div>
-      <h1>Edit Film</h1>
-      <p>ID: {id}</p>
+      <h1 className="main-heading">Edit Film</h1>
+      <p className="sub-heading">ID: {id}</p>
 
       <div className="add-film-form">
         <Input

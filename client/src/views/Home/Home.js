@@ -25,7 +25,8 @@ function Home () {
 
   return (
     <div>
-        <h1>Home</h1>
+        <h1 className='main-heading'>Home</h1>
+        <p className='sub-heading'>🎬 "Discover & Edit Your Favorite Films"</p>
         {films.map((film, index) => {
             const {
                 title,
@@ -61,7 +62,7 @@ function Home () {
         <Toaster/>
 
         <Link to="/add-film">
-            <img src={imgAddFilm} className='img-add-film'/>
+            <img src={imgAddFilm} className='img-add-film' alt='addFilm-icon'/>
         </Link>
     </div>
   );

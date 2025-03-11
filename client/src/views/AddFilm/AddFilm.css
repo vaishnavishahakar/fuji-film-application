@@ -1,9 +1,8 @@
 .add-film-form{
-    background-color: #ffddcc;
+    background-color: lavender;
     width: 700px;
     display: block;
     margin: 0 auto;
-    border: 2px solid #ff5500;
     padding: 20px;
     border-radius: 10px;
 }

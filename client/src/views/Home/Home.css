@@ -1,6 +1,27 @@
 .img-add-film{
     position: fixed;
-    bottom: 20px;
+    top: 20px;
     right: 50px;
     height: 40px;
+    transition: transform 0.3s ease-in-out;
+}
+.img-add-film:hover {
+    transform: scale(1.05);
+}
+
+.main-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #2c3e50; 
+    margin-bottom: 5px; 
+}
+
+.sub-heading {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #486179; 
+    font-style: italic;
+    margin-bottom: 30px;
+    margin-top: 0;
 }

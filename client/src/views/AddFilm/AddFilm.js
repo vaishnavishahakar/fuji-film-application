@@ -51,7 +51,8 @@ function AddFilm() {
 
   return (
     <div>
-      <h1>Add Film</h1>
+      <h1 className="main-heading">Add Film</h1>
+      <p className="sub-heading">"Expand the Collection – Add a New Film!"</p>
 
       <div className="add-film-form">
         <Input
@@ -144,9 +145,9 @@ function AddFilm() {
           placeholder={"Enter the review of the film"}
         />
 
-        <Button title="Add Film" onClick={()=>{addFilm()}} variant="primary" />
+        <Button title="Add Film" onClick={()=>{addFilm()}} variant="" />
 
-        <Button title="Cancel" onClick={()=>{}} variant="secondary" />
+        <Button title="Cancel" onClick={()=>{}} variant="" />
       
       </div>
     </div>
