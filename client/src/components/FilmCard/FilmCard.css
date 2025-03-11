@@ -68,3 +68,9 @@
     align-items: center;
     padding-top: 20px;
 }
+
+.film-card-delete{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}

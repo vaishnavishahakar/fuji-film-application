@@ -6,7 +6,7 @@ function Button ({title, onClick, variant}) {
     <button onClick={onClick} type='button' className={`btn ${variant}`}>
         {title}
     </button>
-  )
+  );
 }
 
 export default Button;

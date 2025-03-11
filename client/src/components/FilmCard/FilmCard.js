@@ -7,6 +7,9 @@ import imgCategory from '../../assets/icons/categories.png';
 import imgLanguage from '../../assets/icons/language.png';
 import imgWriter from '../../assets/icons/writer.png';
 import imgReview from '../../assets/icons/review.png';
+import Button from '../Button/Button';
+import axios from 'axios';
+import toast, {Toaster} from 'react-hot-toast';
 
 function FilmCard ({
     title,
@@ -21,6 +24,14 @@ function FilmCard ({
     review,
     _id,
 }) {
+
+  const deleteFilm = async () => {
+    const response = await axios.delete(`${process.env.REACT_APP_API_URL}/films/${_id}`);
+
+    toast.success(response.data.message);
+    window.location.reload();
+  };
+
   return (
     <div className='film-card'>
       <div>
@@ -70,9 +81,17 @@ function FilmCard ({
           {rating}
         </div>
       </div>
-        
+
+
+    <div className='film-card-delete'>
+    <Button 
+        title={"Delete"}
+        onClick={() => deleteFilm()}
+      />   
     </div>
-  )
+      <Toaster/>
+    </div>
+  );
 }
 
 export default FilmCard;
