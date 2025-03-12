@@ -24,7 +24,7 @@ const connectDB = async () => {
 };
 
 
-app.get("/", getHome);
+app.get("/home", getHome);
 app.get("/health", getHealth);
 
 // Film
