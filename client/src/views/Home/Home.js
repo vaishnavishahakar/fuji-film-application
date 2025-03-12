@@ -11,9 +11,10 @@ function Home () {
 
     const loadFilms = async () => {
         try{
-            const response = await axios.get(`${process.env.REACT_APP_API_URL}/home`)
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/films`)
             setFilms(response.data.data);
             toast.success(response.data.message)
+            console.log(response)
         } catch (error) {
             toast.error(error?.response?.data?.message || error?.message)
         }
@@ -27,6 +28,7 @@ function Home () {
     <div>
         <h1 className='main-heading'>Home</h1>
         <p className='sub-heading'>🎬 "Discover & Edit Your Favorite Films"</p>
+
         {films.map((film, index) => {
             const {
                 title,
